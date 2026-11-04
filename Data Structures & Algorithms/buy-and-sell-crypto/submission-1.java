@@ -1,0 +1,20 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        int left = 0;
+
+        for(int right=0; right<prices.length; right++){
+            if(prices[right]>prices[left]){
+                int profit = prices[right] - prices[left];
+
+                if(profit>maxProfit){
+                    maxProfit = profit;
+                }
+            } else{
+                left = right;
+            }
+        }
+
+        return maxProfit;
+    }
+}
